@@ -4,22 +4,120 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pinkteletubbi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background-color: #000;
-      color: #ff69b4; /* hot pink */
+      color: #ff69b4;
       font-family: 'Orbitron', sans-serif;
+    }
+
+    header {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-size: 3rem;
+      font-size: 6rem;
+      text-align: center;
     }
+
+    img {
+      max-width: 400px;
+      margin-bottom: 40px;
+    }
+
+    .subtitles {
+      font-size: 2rem;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .subtitles a {
+      text-decoration: none;
+      color: white;
+      font-size: 2rem;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #111;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .menu {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .menu a {
+      color: #ff69b4;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      border-top: 2px solid #ff69b4;
+    }
+    
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
   </style>
 </head>
 <body>
-  <div>Hi, I'm pinkteletubbi.</div>
+  <nav>
+    <div class="menu">
+      <a href="#top">home</a>
+      <a href="#whoami">who am i</a>
+      <a href="#projects">projects</a>
+      <a href="#blog">blog</a>
+      <a href="#videos">videos</a>
+      <a href="#contact">contact me</a>
+    </div>
+  </nav>
+
+  <header id="top">
+    <img src="media/pinkteletubbi logo.png" alt="Pinkteletubbi Logo">
+    <div>hi, i'm pinkteletubbi.</div>
+    <div class="subtitles">
+      <a href="https://www.youtube.com/@pinkteletubbi" target="_blank">
+        <i class="fa-brands fa-youtube fa-beat" style="color: #ffffff;"></i>
+      </a>
+      <a href="mailto:youremail@example.com">
+        <i class="fa-solid fa-envelope fa-beat" style="color: #ffffff;"></i>
+      </a>
+      <a href="https://github.com/ramatoulaye02" target="_blank">
+        <i class="fa-brands fa-github fa-beat" style="color: #ffffff;"></i>
+      </a>
+      <a href="https://www.instagram.com/" target="_blank">
+        <i class="fa-brands fa-instagram fa-beat" style="color: #ffffff;"></i>
+      </a>
+    </div>
+  </header>
+
+  <section id="whoami">who am i</section>
+  <section id="projects">projects</section>
+  <section id="blog">blog</section>
+  <section id="videos">videos</section>
+  <section id="contact">contact me</section>
 </body>
 </html>
