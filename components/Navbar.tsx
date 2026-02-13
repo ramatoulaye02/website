@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import PTlogo from '../media/PTlogo.png';
 
 const Navbar: React.FC = () => {
   const location = useLocation();
@@ -17,10 +18,10 @@ const Navbar: React.FC = () => {
   return (
     <nav className="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-pink-900/50 px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
       <Link to="/" className="flex items-center gap-3 group shrink-0">
-        <div className="w-12 h-12 flex items-center justify-center transform group-hover:scale-110 transition-transform">
+        <div className="w-16 h-16 flex items-center justify-center transform group-hover:scale-110 transition-transform">
           <img 
-            src="https://raw.githubusercontent.com/StackBlitz/stackblitz-images/main/pinkteletubbi-logo.png" 
-            alt="Logo"
+            src={PTlogo}
+            alt="Pinkteletubbi Logo"
             className="w-full h-full object-contain pixelated drop-shadow-[0_0_5px_rgba(255,133,193,0.5)]"
             onError={(e) => {
               (e.target as HTMLImageElement).src = 'https://api.dicebear.com/7.x/pixel-art/svg?seed=pink&backgroundColor=ff85c1';

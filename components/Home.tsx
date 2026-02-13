@@ -1,6 +1,6 @@
-
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PTlogo from '../media/PTlogo.png';
 
 const BubbleJumpGame: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -359,7 +359,7 @@ const BubbleJumpGame: React.FC = () => {
 
 const Home: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
-  const fullText = 'hi, im pinkteletubbi';
+  const fullText = 'hi, im pinkteletubbi.';
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -405,9 +405,9 @@ const Home: React.FC = () => {
         <div className="mb-8 relative z-10 animate-logo-float">
           <div className="logo-shadow">
             <img 
-              src="../media/logo.png" 
+              src={PTlogo} 
               alt="Pinkteletubbi Logo"
-              className="w-40 h-40 md:w-56 md:h-56 object-contain pixelated"
+              className="w-72 h-72 md:w-[26rem] md:h-[26rem] lg:w-[32rem] lg:h-[32rem] object-contain pixelated"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = 'https://api.dicebear.com/7.x/pixel-art/svg?seed=pink&backgroundColor=ff85c1';
               }}

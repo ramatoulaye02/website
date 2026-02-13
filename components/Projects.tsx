@@ -1,12 +1,16 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 
 const Projects: React.FC = () => {
+  type ProjectCategory = 'gamedev' | 'ai' | 'webdev';
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory>('webdev');
+
   const projects = [
     {
       name: "PinkOS",
       desc: "A completely unusable but very pretty operating system shell written in JS.",
       tech: ["React", "Tailwind", "Framer Motion"],
+      category: 'webdev' as const,
       icon: (
         <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
           <rect x="15" y="20" width="70" height="50" rx="5" className="animate-pulse" />
@@ -20,6 +24,7 @@ const Projects: React.FC = () => {
       name: "VibeCheck",
       desc: "AI-powered sentiment analysis for your messy discord chats.",
       tech: ["Gemini API", "Node.js", "Express"],
+      category: 'ai' as const,
       icon: (
         <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
           <circle cx="50" cy="50" r="35" />
@@ -34,6 +39,7 @@ const Projects: React.FC = () => {
       name: "GlowUI",
       desc: "A library of React components that literally glow on hover.",
       tech: ["TypeScript", "Radix UI", "CSS"],
+      category: 'webdev' as const,
       icon: (
         <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
           <path d="M50 15 L60 40 L85 40 L65 55 L75 80 L50 65 L25 80 L35 55 L15 40 L40 40 Z" className="fill-[#FF85C1]/20" />
@@ -47,6 +53,7 @@ const Projects: React.FC = () => {
       name: "Bubblegum Engine",
       desc: "A simple 2D game engine optimized for low-res pixel art.",
       tech: ["Canvas", "C++", "WebAssembly"],
+      category: 'gamedev' as const,
       icon: (
         <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
           <circle cx="40" cy="40" r="20" className="fill-[#FF85C1]/40" />
@@ -59,19 +66,48 @@ const Projects: React.FC = () => {
     }
   ];
 
+  const tabs: { key: ProjectCategory; label: string }[] = [
+    { key: 'gamedev', label: 'gamedev' },
+    { key: 'ai', label: 'ai' },
+    { key: 'webdev', label: 'webdev' },
+  ];
+
+  const visibleProjects = projects.filter((project) => project.category === activeCategory);
+
   return (
     <div className="max-w-6xl mx-auto py-20 px-6">
       <div className="flex items-center gap-6 mb-12">
         <h2 className="font-bimbo text-5xl md:text-6xl border-b-2 border-pink-900/50 pb-4 inline-block">
           projects
         </h2>
-        <span className="font-bimbo text-2xl text-pink-700 animate-bounce hidden sm:block">
-          (mostly pink)
-        </span>
+        <div
+          className="hidden sm:flex items-center gap-2 font-bimbo text-2xl text-white animate-bounce"
+          role="tablist"
+          aria-label="project categories"
+        >
+          {tabs.map((tab) => (
+            <button
+              key={tab.key}
+              type="button"
+              role="tab"
+              aria-selected={activeCategory === tab.key}
+              onClick={() => setActiveCategory(tab.key)}
+              className={
+                `px-3 py-1 border-b-2 transition-colors ${
+                  activeCategory === tab.key
+                    ? 'border-[#FF85C1]'
+                    : 'border-transparent hover:border-pink-900/50'
+                }`
+              }
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
       </div>
       
       <div className="grid sm:grid-cols-2 gap-10">
-        {projects.map((proj, idx) => (
+        {visibleProjects.map((proj, idx) => (
           <div key={idx} className="group relative p-1 rounded-3xl bg-pink-900/10 hover:bg-[#FF85C1]/20 transition-all duration-500 border border-pink-900/30 hover:border-[#FF85C1]/50 shadow-xl">
             <div className="bg-black/40 backdrop-blur-sm p-8 rounded-[22px] h-full flex flex-col">
               <div className="w-16 h-16 mb-6 text-[#FF85C1] group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_#FF85C1] transition-all duration-500 transform -rotate-3 group-hover:rotate-0">

@@ -37,26 +37,34 @@ const Blogs: React.FC = () => {
       
       <div className="grid md:grid-cols-2 gap-8">
         {blogs.map((blog, idx) => (
-          <div key={idx} className="group p-8 rounded-3xl bg-pink-900/5 border border-pink-900/20 hover:border-[#FF85C1]/50 transition-all hover:-translate-y-1">
-            <div className="flex justify-between items-start mb-4">
-              <span className="font-bimbo text-pink-400">{blog.date}</span>
-              <div className="flex gap-2">
-                {blog.tags.map(tag => (
-                  <span key={tag} className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded border border-pink-800 text-pink-500">
-                    {tag}
-                  </span>
-                ))}
+          <div key={idx} className="group relative p-1 rounded-3xl bg-pink-900/10 hover:bg-[#FF85C1]/20 transition-all duration-500 border border-pink-900/30 hover:border-[#FF85C1]/50 shadow-xl">
+            <div className="bg-black/40 backdrop-blur-sm p-8 rounded-[22px] h-full flex flex-col">
+              <div className="flex justify-between items-start mb-4 gap-4">
+                <span className="font-bimbo text-pink-400">{blog.date}</span>
+                <div className="flex flex-wrap justify-end gap-2">
+                  {blog.tags.map(tag => (
+                    <span
+                      key={tag}
+                      className="font-bimbo text-lg px-3 py-0.5 bg-pink-900/20 border border-pink-500/20 rounded-lg text-pink-400"
+                    >
+                      {tag.toLowerCase()}
+                    </span>
+                  ))}
+                </div>
               </div>
+
+              <h3 className="font-bimbo text-4xl text-white mb-4 tracking-tight group-hover:text-[#FF85C1] transition-colors">
+                {blog.title}
+              </h3>
+
+              <p className="font-bimbo-alt text-lg text-pink-200/70 mb-8 flex-grow leading-relaxed">
+                {blog.excerpt}
+              </p>
+
+              <button className="font-bimbo text-2xl py-2 rounded-xl border-2 border-pink-500/30 hover:bg-pink-500/10 text-[#FF85C1] transition-all active:scale-95">
+                read more →
+              </button>
             </div>
-            <h3 className="font-bimbo text-3xl text-white mb-4 group-hover:text-[#FF85C1] transition-colors">
-              {blog.title}
-            </h3>
-            <p className="font-bimbo-alt text-lg text-pink-200/70 mb-6">
-              {blog.excerpt}
-            </p>
-            <button className="font-bimbo text-xl text-[#FF85C1] hover:underline underline-offset-4">
-              read more →
-            </button>
           </div>
         ))}
       </div>

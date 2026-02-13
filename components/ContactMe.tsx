@@ -16,7 +16,7 @@ const ContactMe: React.FC = () => {
         <h2 className="font-bimbo text-6xl md:text-8xl mb-4 border-b-2 border-pink-900/30 pb-4 inline-block">
           contact me
         </h2>
-        <p className="font-bimbo-alt text-2xl text-pink-300">drop me a message, let's build something pink.</p>
+        <p className="font-bimbo-alt text-2xl text-pink-300">drop me a message, let's build something.</p>
       </div>
 
       <div className="grid md:grid-cols-5 gap-12">

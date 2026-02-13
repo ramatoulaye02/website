@@ -48,9 +48,9 @@ const GameOfLifeBackground: React.FC = () => {
           }
 
           if (state === 1) {
-            ctx.fillStyle = '#FF85C144'; // Subtle bubblegum pink
+            ctx.fillStyle = '#7e09432d'; // Subtle bubblegum pink
             ctx.shadowBlur = 4;
-            ctx.shadowColor = '#FF85C1';
+            ctx.shadowColor = '#be6c95';
             ctx.fillRect(i * cellSize + 1, j * cellSize + 1, cellSize - 2, cellSize - 2);
             ctx.shadowBlur = 0;
           }
