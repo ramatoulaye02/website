@@ -33,7 +33,7 @@ const BubbleJumpGame: React.FC = () => {
     ],
     clouds: [] as { x: number; y: number; speed: number; w: number }[],
     frame: 0,
-    speed: 3.5,
+    speed: 5.0,
     squishScale: 1,
     squishTarget: 1,
   });
@@ -80,7 +80,7 @@ const BubbleJumpGame: React.FC = () => {
       obstacles: [],
       particles: [],
       frame: 0,
-      speed: 3.5,
+      speed: 5.0,
       squishScale: 1,
       squishTarget: 1,
     };
@@ -137,21 +137,46 @@ const BubbleJumpGame: React.FC = () => {
       ctx.translate(cx, cy);
       ctx.scale(1 / scale, scale);
       
-      const pixel = 4;
-      ctx.fillStyle = '#FF85C1';
+      const pixel = 3;
+      const r2 = r * r;
+      const innerR = r - pixel * 2;
+      const innerR2 = innerR * innerR;
+
       for (let x = -r; x <= r; x += pixel) {
         for (let y = -r; y <= r; y += pixel) {
-          if (x * x + y * y <= r * r) {
+          const d2 = x * x + y * y;
+          if (d2 > r2) continue;
+
+          // rim / outline
+          if (d2 >= innerR2) {
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+            ctx.fillRect(x, y, pixel, pixel);
+            continue;
+          }
+
+          // base translucent fill
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.10)';
+          ctx.fillRect(x, y, pixel, pixel);
+
+          // subtle iridescent tint (very light)
+          if (x > 0 && y < 0 && d2 > (r * 0.35) * (r * 0.35) && d2 < (r * 0.55) * (r * 0.55)) {
+            ctx.fillStyle = 'rgba(255, 133, 193, 0.10)';
+            ctx.fillRect(x, y, pixel, pixel);
+          }
+
+          // specular highlight (top-left)
+          if (x < -r * 0.25 && y < -r * 0.15 && d2 < (r * 0.55) * (r * 0.55)) {
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
             ctx.fillRect(x, y, pixel, pixel);
           }
         }
       }
-      ctx.fillStyle = '#FFF';
-      ctx.fillRect(-r/2, -r/2, pixel * 2, pixel);
-      ctx.fillStyle = '#000';
-      ctx.fillRect(-6, -4, pixel, pixel);
-      ctx.fillRect(6, -4, pixel, pixel);
-      ctx.fillRect(-2, 2, pixel, pixel);
+
+      // extra highlight streak
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.30)';
+      ctx.fillRect(-Math.floor(r * 0.5), -Math.floor(r * 0.35), pixel * 2, pixel);
+      ctx.fillRect(-Math.floor(r * 0.45), -Math.floor(r * 0.25), pixel, pixel);
+      ctx.fillRect(-Math.floor(r * 0.4), -Math.floor(r * 0.15), pixel, pixel);
       ctx.restore();
     };
 
@@ -180,7 +205,7 @@ const BubbleJumpGame: React.FC = () => {
           state.squishTarget = 1;
         }
 
-        if (state.frame % Math.max(50, Math.floor(140 - state.speed * 6)) === 0) {
+        if (state.frame % Math.max(40, Math.floor(120 - state.speed * 6)) === 0) {
           const type = Math.random() > 0.4 ? 0 : 1; 
           state.obstacles.push({
             x: canvas.width,
@@ -217,7 +242,7 @@ const BubbleJumpGame: React.FC = () => {
         });
         state.particles = state.particles.filter(p => p.life > 0);
 
-        state.speed += 0.0003; 
+        state.speed += 0.0006; 
         setScore(Math.floor(state.frame / 10));
       }
 
@@ -296,18 +321,12 @@ const BubbleJumpGame: React.FC = () => {
   return (
     <div ref={containerRef} className="mt-auto w-full flex flex-col items-center relative group">
       {/* HUD */}
-      {gameStarted && (
+      {gameStarted && !gameOver && (
         <div className="absolute top-4 left-4 z-50 pointer-events-none flex gap-4 font-bimbo text-2xl">
-          {gameOver ? (
-            <span className="bg-black/95 px-5 py-2 text-white border-2 border-white">
-              game over!
-            </span>
-          ) : (
-            <div className="flex flex-col gap-0 leading-none bg-black/40 p-2 border-l-4 border-pink-500">
-              <span className="text-pink-500 text-xs uppercase font-bold tracking-widest">score</span>
-              <span className="text-white text-3xl">{score}</span>
-            </div>
-          )}
+          <div className="flex flex-col gap-0 leading-none bg-black/40 p-2 border-l-4 border-pink-500">
+            <span className="text-pink-500 text-xs uppercase font-bold tracking-widest">score</span>
+            <span className="text-white text-3xl">{score}</span>
+          </div>
         </div>
       )}
       
@@ -333,7 +352,7 @@ const BubbleJumpGame: React.FC = () => {
         
         {gameOver && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/40 z-40 transition-all">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 max-w-full px-6 text-center">
+            <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 md:gap-16 max-w-full px-6 text-center">
               <div className="drop-shadow-[0_0_30px_rgba(0,0,0,0.8)]">
                 <span className="font-bimbo text-8xl md:text-9xl text-white leading-none tracking-tighter block mb-2">
                   BUSTED!
@@ -341,7 +360,7 @@ const BubbleJumpGame: React.FC = () => {
                 <p className="font-bimbo text-4xl text-pink-500 uppercase tracking-widest">score: {score}</p>
               </div>
 
-              <div className="shrink-0">
+              <div className="shrink-0 md:self-start">
                 <button 
                   onClick={(e) => { e.stopPropagation(); resetGame(); }}
                   className="px-14 py-5 bg-[#FF85C1] text-black font-bimbo text-4xl rounded-none border-0 outline-none hover:bg-white hover:text-black transition-all transform hover:scale-110 active:scale-95 shadow-[10px_10px_0px_white]"

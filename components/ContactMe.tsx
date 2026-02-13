@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import contactMeImg from '../media/contact-me.png';
 
 const ContactMe: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -39,9 +40,9 @@ const ContactMe: React.FC = () => {
           <div className="relative group">
             <div className="absolute -inset-2 bg-pink-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <img 
-              src="https://picsum.photos/seed/contact/500/300" 
+              src={contactMeImg}
               alt="Workspace" 
-              className="relative rounded-3xl grayscale brightness-75 border-2 border-pink-900/40"
+              className="relative w-full h-40 md:h-52 object-contain bg-black/20 rounded-3xl border-2 border-pink-900/40"
             />
           </div>
         </div>

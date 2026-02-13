@@ -16,9 +16,9 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-pink-900/50 px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+    <nav className="sticky top-0 z-50 bg-[#FF85C1]/5 backdrop-blur-sm border-b border-[#FF85C1]/15 px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
       <Link to="/" className="flex items-center gap-3 group shrink-0">
-        <div className="w-16 h-16 flex items-center justify-center transform group-hover:scale-110 transition-transform">
+        <div className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center transform group-hover:scale-110 transition-transform">
           <img 
             src={PTlogo}
             alt="Pinkteletubbi Logo"
@@ -28,12 +28,12 @@ const Navbar: React.FC = () => {
             }}
           />
         </div>
-        <span className="font-bimbo text-3xl tracking-tighter hover:text-white transition-colors">
+        <span className="font-bimbo text-4xl md:text-5xl tracking-tighter hover:text-white transition-colors">
           pinkteletubbi
         </span>
       </Link>
       
-      <div className="flex flex-wrap justify-center gap-4 md:gap-8 font-bimbo text-lg md:text-xl">
+      <div className="flex flex-wrap justify-center gap-6 md:gap-10 font-bimbo text-2xl md:text-3xl">
         {navItems.map((item) => (
           <Link
             key={item.path}
