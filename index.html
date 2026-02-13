@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pinkteletubbi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Indie Flower and Gloria Hallelujah for that CS Bimbo handwritten feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Indie+Flower&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000000;
+      color: #FF85C1;
+      font-family: 'Inter', sans-serif;
+    }
+    .font-bimbo {
+      font-family: 'Indie Flower', cursive;
+    }
+    .font-bimbo-alt {
+      font-family: 'Gloria Hallelujah', cursive;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FF85C1;
+      border-radius: 10px;
+    }
+    .typing-cursor::after {
+      content: '|';
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      from, to { color: transparent }
+      50% { color: #FF85C1 }
+    }
+    .nav-link-hover:hover {
+      text-shadow: 0 0 10px #FF85C1;
+    }
+
+    /* Logo floating animation */
+    @keyframes logo-float {
+      0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(5deg);
+      }
+    }
+    .animate-logo-float {
+      animation: logo-float 4s ease-in-out infinite;
+    }
+
+    /* Pulse glow for the logo background */
+    @keyframes logo-glow {
+      0%, 100% {
+        filter: drop-shadow(0 0 10px rgba(255, 133, 193, 0.4));
+      }
+      50% {
+        filter: drop-shadow(0 0 25px rgba(255, 133, 193, 0.8));
+      }
+    }
+    .logo-shadow {
+      animation: logo-glow 3s ease-in-out infinite;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

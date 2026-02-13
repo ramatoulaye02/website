@@ -1,0 +1,67 @@
+
+import React from 'react';
+
+const Blogs: React.FC = () => {
+  const blogs = [
+    {
+      title: "why black & pink is the only valid theme",
+      date: "Oct 24, 2023",
+      excerpt: "an essay on color theory and how to make people's eyes happy and sad at the same time.",
+      tags: ["design", "opinion"]
+    },
+    {
+      title: "how i built this portfolio while drinking too much coffee",
+      date: "Sept 12, 2023",
+      excerpt: "a technical deep dive into the mess that is my source code and why i love it.",
+      tags: ["coding", "lifestyle"]
+    },
+    {
+      title: "the future of web design: more gradients, less sense",
+      date: "Aug 05, 2023",
+      excerpt: "predictions for 2024 and why we are all going back to retro styles eventually.",
+      tags: ["ux", "future"]
+    },
+    {
+      title: "my favorite css tricks for glowing text",
+      date: "July 19, 2023",
+      excerpt: "because if it doesn't glow, is it even a website? let's talk about box-shadow abuse.",
+      tags: ["tutorial", "css"]
+    }
+  ];
+
+  return (
+    <div className="max-w-6xl mx-auto py-20 px-6">
+      <h2 className="font-bimbo text-5xl md:text-6xl mb-12 border-b-2 border-pink-900/50 pb-4 inline-block">
+        blogs
+      </h2>
+      
+      <div className="grid md:grid-cols-2 gap-8">
+        {blogs.map((blog, idx) => (
+          <div key={idx} className="group p-8 rounded-3xl bg-pink-900/5 border border-pink-900/20 hover:border-[#FF85C1]/50 transition-all hover:-translate-y-1">
+            <div className="flex justify-between items-start mb-4">
+              <span className="font-bimbo text-pink-400">{blog.date}</span>
+              <div className="flex gap-2">
+                {blog.tags.map(tag => (
+                  <span key={tag} className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded border border-pink-800 text-pink-500">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <h3 className="font-bimbo text-3xl text-white mb-4 group-hover:text-[#FF85C1] transition-colors">
+              {blog.title}
+            </h3>
+            <p className="font-bimbo-alt text-lg text-pink-200/70 mb-6">
+              {blog.excerpt}
+            </p>
+            <button className="font-bimbo text-xl text-[#FF85C1] hover:underline underline-offset-4">
+              read more →
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Blogs;
