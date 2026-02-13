@@ -8,7 +8,6 @@ const ContactMe: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSent(true);
-    // In a real app, you'd send this to an API
   };
 
   return (
