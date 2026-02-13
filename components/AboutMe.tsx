@@ -1,7 +1,20 @@
 
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 
 const AboutMe: React.FC = () => {
+  const photoSources = useMemo(() => {
+    const modules = import.meta.glob('../media/about-*.{png,jpg,jpeg,webp}', {
+      eager: true,
+      import: 'default',
+    }) as Record<string, string>;
+
+    return Object.entries(modules)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([, src]) => src);
+  }, []);
+
+  const [activePhoto, setActivePhoto] = useState<string>(() => photoSources[0] ?? '');
+
   return (
     <div className="max-w-4xl mx-auto py-20 px-6">
       <h2 className="font-bimbo text-5xl md:text-6xl mb-12 border-b-2 border-pink-900/50 pb-4 inline-block">
@@ -11,13 +24,39 @@ const AboutMe: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div className="space-y-6">
           <div className="aspect-square bg-pink-900/20 border-2 border-[#FF85C1] rounded-3xl overflow-hidden relative group">
-            <img 
-              src="https://picsum.photos/seed/pinkteletubbi/800/800" 
-              alt="Pinkteletubbi Profile" 
-              className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700"
-            />
+            {activePhoto ? (
+              <img
+                src={activePhoto}
+                alt="Pinkteletubbi Profile"
+                className="w-full h-full object-cover transition-all duration-700"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center font-bimbo text-2xl text-pink-300">
+                add photos to /media as about-*.png
+              </div>
+            )}
             <div className="absolute inset-0 bg-[#FF85C1]/20 mix-blend-color"></div>
           </div>
+
+          {photoSources.length > 1 && (
+            <div className="grid grid-cols-4 gap-3">
+              {photoSources.map((src, idx) => (
+                <button
+                  key={`${src}-${idx}`}
+                  type="button"
+                  onClick={() => setActivePhoto(src)}
+                  aria-label={`select photo ${idx + 1}`}
+                  className={
+                    `aspect-square rounded-2xl overflow-hidden border-2 transition-colors ${
+                      activePhoto === src ? 'border-[#FF85C1]' : 'border-pink-900/30 hover:border-[#FF85C1]/50'
+                    }`
+                  }
+                >
+                  <img src={src} alt="" className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
           <div className="p-6 bg-pink-900/10 rounded-2xl border border-pink-900/30">
             <h3 className="font-bimbo text-2xl text-white mb-2">stats</h3>
             <ul className="space-y-2 font-bimbo text-xl">
