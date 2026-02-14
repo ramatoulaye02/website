@@ -28,7 +28,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <footer className="p-8 text-center text-pink-300 font-bimbo text-xl border-t border-pink-900/30 bg-black/40 backdrop-blur-sm">
-          © {new Date().getFullYear()} pinkteletubbi • made with magic
+          © {new Date().getFullYear()} pinkteletubbi • made with love
         </footer>
       </div>
     </HashRouter>

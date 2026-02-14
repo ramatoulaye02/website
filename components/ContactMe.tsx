@@ -26,7 +26,7 @@ const ContactMe: React.FC = () => {
             <h3 className="font-bimbo text-3xl text-white mb-4">the quick way</h3>
             <ul className="space-y-4 font-bimbo text-xl text-pink-200">
               <li className="flex items-center gap-3">
-                <span className="text-[#FF85C1]">✉</span> hello@pinkteletubbi.dev
+                <span className="text-[#FF85C1]">✉</span> balde.rama@outlook.com
               </li>
               <li className="flex items-center gap-3">
                 <span className="text-[#FF85C1]">@</span> dm me on instagram
@@ -85,7 +85,7 @@ const ContactMe: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block font-bimbo text-2xl text-pink-400 mb-2">the tea</label>
+                <label className="block font-bimbo text-2xl text-pink-400 mb-2">what's up!</label>
                 <textarea 
                   rows={5}
                   required
