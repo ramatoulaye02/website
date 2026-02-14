@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import AboutMe from './components/AboutMe';
 import Blogs from './components/Blogs';
+import BlogPost from './components/BlogPost';
 import Videos from './components/Videos';
 import Projects from './components/Projects';
 import ContactMe from './components/ContactMe';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutMe />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blogs/:slug" element={<BlogPost />} />
             <Route path="/videos" element={<Videos />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<ContactMe />} />
