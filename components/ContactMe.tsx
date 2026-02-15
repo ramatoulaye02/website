@@ -42,7 +42,7 @@ const ContactMe: React.FC = () => {
             <img 
               src={contactMeImg}
               alt="Workspace" 
-              className="relative w-full h-40 md:h-52 object-contain bg-black/20 rounded-3xl border-2 border-pink-900/40"
+              className="relative w-full h-64 md:h-80 object-cover bg-black/20 rounded-3xl border-2 border-pink-900/40"
             />
           </div>
         </div>
