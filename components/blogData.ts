@@ -16,129 +16,175 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: 'building-intelligence-into-play',
-    title: 'building intelligence into play: how i think about game ai',
-    date: 'Feb 14, 2025',
+    slug: 'interpersonal-relationships-ai',
+    title: 'Interpersonal Relationships with AI: When Your "Assistant" Becomes Your Emotional Anchor',
+    date: 'Feb 16, 2026',
     excerpt:
-      'a short look at how i blend game feel with ai systems, from tiny behaviors to full-on simulation vibes.',
-    tags: ['ai', 'gamedev', 'systems'],
+      'LLMs are designed to be agreeable, responsive, available 24/7, and adapt to your tone. That\'s dangerously close to "ideal companion."',
+    tags: ['ai', 'psychology', 'relationships'],
     author: 'Ramatoulaye Balde',
     readTime: '6 min read',
     sections: [
       {
-        heading: 'why ai in games feels different',
         paragraphs: [
-          'game ai is not about being "smart" all the time — it is about creating believable reactions and fun challenge loops.',
-          'i care more about player emotion than perfect decisions. if a system makes you laugh, panic, or feel clever, it is doing its job.'
+          'This one\'s serious.',
+          'LLMs are designed to:',
+          'Be agreeable',
+          'Be responsive',
+          'Be available 24/7',
+          'Adapt to your tone',
+          'That\'s dangerously close to "ideal companion."'
         ]
       },
       {
-        heading: 'my favorite building blocks',
+        heading: 'The risk isn\'t falling in love with AI. It\'s replacing human friction.',
         paragraphs: [
-          'i usually start with simple state machines or behavior trees, then add small randomness so patterns do not feel robotic.',
-          'when i need deeper systems, i combine utility scoring, timers, and player telemetry to make the world feel alive.'
+          'Humans disagree. They misinterpret. They have needs. They\'re inconsistent.',
+          'LLMs don\'t.',
+          'If someone begins to prefer AI interaction over human interaction because it\'s smoother, they may unintentionally weaken real-world social muscles.',
+          'There\'s also dependency risk. If emotional regulation starts relying on AI reassurance, what happens if access disappears?'
         ]
       },
       {
-        heading: 'what i am experimenting with now',
+        heading: 'We are entering an era where AI isn\'t just a tool',
         paragraphs: [
-          'dynamic difficulty that adapts to player tempo, not just score. faster inputs should feel like the game is breathing with you.',
-          'procedural encounters that remix enemy roles so every run feels slightly new but still learnable.'
-        ]
-      },
-      {
-        heading: 'takeaway',
-        paragraphs: [
-          'my goal is always the same: build systems that feel human, playful, and just unpredictable enough to stay exciting.',
-          'if you want to jam on an idea like this, let us build something weird and beautiful.'
+          'It\'s a relational entity.',
+          'And we have zero long-term psychological data on what that does to attachment patterns.',
+          'We built machines that simulate understanding.',
+          'Now we have to decide how close we\'re allowed to get.'
         ]
       }
     ]
   },
   {
-    slug: 'vibe-coding-ai-ethics',
-    title: 'vibe coding with ai: the ethics we cannot ignore',
-    date: 'Mar 22, 2025',
+    slug: 'top-10-greatest-anime',
+    title: 'Top 10 Greatest Anime of All Time (Yes I\'m Ready to Be Attacked)',
+    date: 'Feb 11, 2026',
     excerpt:
-      'ai can speed up creative flow, but it also raises hard questions about authorship, bias, and responsibility. here is how i think about it.',
-    tags: ['ai', 'ethics', 'dev'],
+      'This is consensus-core Reddit energy, not personal niche picks. These consistently show up in polls, discussions, MAL top lists, and heated comment wars.',
+    tags: ['anime', 'culture', 'ranking'],
+    author: 'Ramatoulaye Balde',
+    readTime: '5 min read',
+    sections: [
+      {
+        paragraphs: [
+          'This is consensus-core Reddit energy, not personal niche picks.'
+        ]
+      },
+      {
+        heading: 'The List',
+        paragraphs: [
+          '1. Fullmetal Alchemist: Brotherhood',
+          '2. Attack on Titan',
+          '3. Steins;Gate',
+          '4. Neon Genesis Evangelion',
+          '5. Cowboy Bebop',
+          '6. Hunter x Hunter (2011)',
+          '7. Death Note',
+          '8. One Piece',
+          '9. Gurren Lagann',
+          '10. Mob Psycho 100'
+        ]
+      },
+      {
+        heading: 'Why these?',
+        paragraphs: [
+          'Because they consistently show up in polls, discussions, MAL top lists, and heated comment wars.',
+          'FMA:B is narratively airtight. AoT redefined mainstream anime hype. Evangelion broke people psychologically. Steins;Gate is peak time travel writing. Mob Psycho is emotional maturity disguised as shonen.',
+          'You can debate order. You can swap one out. But if your top 10 has none of these, you\'re being contrarian.'
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'simulation-hypothesis',
+    title: 'Why I Think We Might Live in a Simulation',
+    date: 'Dec 16, 2025',
+    excerpt:
+      'Nick Bostrom\'s argument is probabilistic, not sci-fi. If advanced civilizations can simulate conscious minds cheaply, then statistically, simulated minds vastly outnumber original biological ones.',
+    tags: ['philosophy', 'simulation', 'theory'],
     author: 'Ramatoulaye Balde',
     readTime: '7 min read',
     sections: [
       {
-        heading: 'the magic and the mess',
         paragraphs: [
-          'vibe coding feels like turning ideas into reality at hyperspeed. it is empowering, but speed can hide cracks in quality and accountability.',
-          'when ai writes or suggests code, i still own the outcome. that means i have to review, test, and understand what i ship.'
+          'Nick Bostrom\'s argument is probabilistic, not sci-fi.',
+          'He says one of these must be true:',
+          '1. Civilizations never reach simulation capability.',
+          '2. They reach it but never run ancestor simulations.',
+          '3. We are almost certainly in one.'
         ]
       },
       {
-        heading: 'authorship and honesty',
+        heading: 'The math',
         paragraphs: [
-          'credit matters. if ai helped shape a solution, i try to be honest about the process, especially in public work or collaboration.',
-          'transparency builds trust and keeps the creative process grounded in reality, not hype.'
+          'If advanced civilizations can simulate conscious minds cheaply, then statistically, simulated minds vastly outnumber original biological ones.',
+          'Meaning: odds are you\'re in a rendered environment.',
+          'What makes this compelling isn\'t vibes. It\'s math.',
+          'If there are trillions of simulations and one base reality, the probability you\'re base reality is tiny.'
         ]
       },
       {
-        heading: 'bias and the invisible defaults',
+        heading: 'Objections?',
         paragraphs: [
-          'models reflect the data they are trained on. that means they can echo bias, stereotypes, or unsafe patterns if i do not check them.',
-          'i treat outputs as a draft, not truth. i validate sources, test edge cases, and intentionally design for fairness.'
+          '"We\'d detect glitches." Not necessarily.',
+          '"Physics looks continuous." Does it? Quantum discreteness looks suspiciously computational.',
+          '"Why simulate suffering?" Why do we simulate wars in games?'
         ]
       },
       {
-        heading: 'what i am aiming for',
+        heading: 'The takeaway',
         paragraphs: [
-          'ai should be a creative amplifier, not a shortcut around responsibility. i want tools that help me build faster, while keeping craftsmanship and ethics intact.',
-          'if we can pair speed with care, vibe coding becomes a superpower instead of a risk.'
+          'Even if it\'s false, the hypothesis reframes reality as potentially computational. That alone changes philosophy, ethics, and physics conversations.',
+          'It\'s less "we\'re in The Matrix" and more "statistically, base reality is unlikely."'
         ]
       }
     ]
   },
   {
-    slug: 'top-5-greatest-video-games',
-    title: 'Top 5 Greatest Video Games of the Last Decade (2015–2025)',
-    date: 'Apr 17, 2025',
+    slug: 'ai-in-education-dangers',
+    title: 'AI in Education: The Danger of Having an LLM Genius in Your Pocket',
+    date: 'Sep 16, 2025',
     excerpt:
-      'The games that actually shifted the culture, rewired expectations, or made grown adults sit in silence during the credits.',
-    tags: ['gaming', 'culture', 'analysis'],
+      'We now have 24/7 access to something that explains calculus better than most professors at 3am. That\'s insane. It\'s also dangerous.',
+    tags: ['ai', 'education', 'ethics'],
     author: 'Ramatoulaye Balde',
-    readTime: '8 min read',
+    readTime: '6 min read',
     sections: [
       {
         paragraphs: [
-          'This list isn\'t "highest Metacritic." It\'s not "most copies sold." It\'s the games that actually shifted the culture, rewired expectations, or made grown adults sit in silence during the credits.'
+          'We now have 24/7 access to something that explains calculus better than most professors at 3am.',
+          'That\'s insane.',
+          'It\'s also dangerous.'
         ]
       },
       {
-        heading: '1. The Witcher 3: Wild Hunt (2015)',
+        heading: 'The problem isn\'t cheating. The problem is cognitive atrophy.',
         paragraphs: [
-          'Yes, technically 2015. Yes, it still counts. This game permanently altered how people think about side quests. Before Witcher 3, side quests were XP padding. After Witcher 3, they were mini Greek tragedies. The Bloody Baron storyline alone is more emotionally coherent than entire AAA campaigns. It proved open worlds could be morally complex instead of just geographically large.'
+          'When an LLM can instantly:',
+          'Summarize chapters',
+          'Solve homework',
+          'Draft essays',
+          'Generate code',
+          'You stop struggling.',
+          'And struggle is literally how the brain wires competence.',
+          'If students outsource friction, they outsource growth.'
         ]
       },
       {
-        heading: '2. The Legend of Zelda: Breath of the Wild (2017)',
+        heading: 'Authority illusion',
         paragraphs: [
-          'This one changed design philosophy. It threw away checklist open-world design and said, "What if we just trust the player?" Physics systems over scripted sequences. Emergent gameplay over hand-holding. You don\'t "unlock" fun. You experiment into it. Every open-world game after 2017 has Breath of the Wild\'s shadow on it.'
+          'LLMs speak confidently even when wrong. A 17-year-old isn\'t going to cross-check everything. If it "sounds smart," it feels true.',
+          'There\'s also equity issues. The student who uses AI as a tutor gains massive leverage. The one who doesn\'t falls behind.'
         ]
       },
       {
-        heading: '3. Red Dead Redemption 2 (2018)',
+        heading: 'AI in education is incredible when used as scaffolding',
         paragraphs: [
-          'Rockstar built a simulation, not just a game. NPC schedules. Wildlife ecosystems. Snow deformation physics. But what makes it GOAT-tier isn\'t the tech — it\'s Arthur Morgan. The slow-burn narrative, the meditation on mortality, the quiet campfire conversations. It\'s one of the few AAA games that felt literary.'
-        ]
-      },
-      {
-        heading: '4. Elden Ring (2022)',
-        paragraphs: [
-          'FromSoftware took Souls design and said, "What if we remove friction without removing pain?" It respected player intelligence. No quest markers. No glowing breadcrumbs. Just vibes, cryptic dialogue, and "figure it out." And millions did. It proved players don\'t need constant instruction — they need trust.'
-        ]
-      },
-      {
-        heading: '5. Baldur\'s Gate 3 (2023)',
-        paragraphs: [
-          'This is the first time in a long time that "player choice matters" wasn\'t marketing. Entire questlines vanish based on decisions. Companion arcs feel reactive, not decorative. It also showed AAA polish and CRPG depth don\'t have to be mutually exclusive.',
-          'Honorable mentions: Undertale, Hades, Disco Elysium, Minecraft (still), and Cyberpunk 2077 (after redemption arc patching).'
+          'Explain concepts differently.',
+          'Generate practice problems.',
+          'Offer feedback loops.',
+          'But if it becomes a cognitive crutch, we risk raising a generation that can prompt brilliantly but reason shallowly.'
         ]
       }
     ]
@@ -193,175 +239,129 @@ export const blogPosts: BlogPost[] = [
     ]
   },
   {
-    slug: 'ai-in-education-dangers',
-    title: 'AI in Education: The Danger of Having an LLM Genius in Your Pocket',
-    date: 'Sep 16, 2025',
+    slug: 'top-5-greatest-video-games',
+    title: 'Top 5 Greatest Video Games of the Last Decade (2015–2025)',
+    date: 'Apr 17, 2025',
     excerpt:
-      'We now have 24/7 access to something that explains calculus better than most professors at 3am. That\'s insane. It\'s also dangerous.',
-    tags: ['ai', 'education', 'ethics'],
+      'The games that actually shifted the culture, rewired expectations, or made grown adults sit in silence during the credits.',
+    tags: ['gaming', 'culture', 'analysis'],
     author: 'Ramatoulaye Balde',
-    readTime: '6 min read',
+    readTime: '8 min read',
     sections: [
       {
         paragraphs: [
-          'We now have 24/7 access to something that explains calculus better than most professors at 3am.',
-          'That\'s insane.',
-          'It\'s also dangerous.'
+          'This list isn\'t "highest Metacritic." It\'s not "most copies sold." It\'s the games that actually shifted the culture, rewired expectations, or made grown adults sit in silence during the credits.'
         ]
       },
       {
-        heading: 'The problem isn\'t cheating. The problem is cognitive atrophy.',
+        heading: '1. The Witcher 3: Wild Hunt (2015)',
         paragraphs: [
-          'When an LLM can instantly:',
-          'Summarize chapters',
-          'Solve homework',
-          'Draft essays',
-          'Generate code',
-          'You stop struggling.',
-          'And struggle is literally how the brain wires competence.',
-          'If students outsource friction, they outsource growth.'
+          'Yes, technically 2015. Yes, it still counts. This game permanently altered how people think about side quests. Before Witcher 3, side quests were XP padding. After Witcher 3, they were mini Greek tragedies. The Bloody Baron storyline alone is more emotionally coherent than entire AAA campaigns. It proved open worlds could be morally complex instead of just geographically large.'
         ]
       },
       {
-        heading: 'Authority illusion',
+        heading: '2. The Legend of Zelda: Breath of the Wild (2017)',
         paragraphs: [
-          'LLMs speak confidently even when wrong. A 17-year-old isn\'t going to cross-check everything. If it "sounds smart," it feels true.',
-          'There\'s also equity issues. The student who uses AI as a tutor gains massive leverage. The one who doesn\'t falls behind.'
+          'This one changed design philosophy. It threw away checklist open-world design and said, "What if we just trust the player?" Physics systems over scripted sequences. Emergent gameplay over hand-holding. You don\'t "unlock" fun. You experiment into it. Every open-world game after 2017 has Breath of the Wild\'s shadow on it.'
         ]
       },
       {
-        heading: 'AI in education is incredible when used as scaffolding',
+        heading: '3. Red Dead Redemption 2 (2018)',
         paragraphs: [
-          'Explain concepts differently.',
-          'Generate practice problems.',
-          'Offer feedback loops.',
-          'But if it becomes a cognitive crutch, we risk raising a generation that can prompt brilliantly but reason shallowly.'
+          'Rockstar built a simulation, not just a game. NPC schedules. Wildlife ecosystems. Snow deformation physics. But what makes it GOAT-tier isn\'t the tech — it\'s Arthur Morgan. The slow-burn narrative, the meditation on mortality, the quiet campfire conversations. It\'s one of the few AAA games that felt literary.'
+        ]
+      },
+      {
+        heading: '4. Elden Ring (2022)',
+        paragraphs: [
+          'FromSoftware took Souls design and said, "What if we remove friction without removing pain?" It respected player intelligence. No quest markers. No glowing breadcrumbs. Just vibes, cryptic dialogue, and "figure it out." And millions did. It proved players don\'t need constant instruction — they need trust.'
+        ]
+      },
+      {
+        heading: '5. Baldur\'s Gate 3 (2023)',
+        paragraphs: [
+          'This is the first time in a long time that "player choice matters" wasn\'t marketing. Entire questlines vanish based on decisions. Companion arcs feel reactive, not decorative. It also showed AAA polish and CRPG depth don\'t have to be mutually exclusive.',
+          'Honorable mentions: Undertale, Hades, Disco Elysium, Minecraft (still), and Cyberpunk 2077 (after redemption arc patching).'
         ]
       }
     ]
   },
   {
-    slug: 'simulation-hypothesis',
-    title: 'Why I Think We Might Live in a Simulation',
-    date: 'Dec 16, 2025',
+    slug: 'vibe-coding-ai-ethics',
+    title: 'vibe coding with ai: the ethics we cannot ignore',
+    date: 'Mar 22, 2025',
     excerpt:
-      'Nick Bostrom\'s argument is probabilistic, not sci-fi. If advanced civilizations can simulate conscious minds cheaply, then statistically, simulated minds vastly outnumber original biological ones.',
-    tags: ['philosophy', 'simulation', 'theory'],
+      'ai can speed up creative flow, but it also raises hard questions about authorship, bias, and responsibility. here is how i think about it.',
+    tags: ['ai', 'ethics', 'dev'],
     author: 'Ramatoulaye Balde',
     readTime: '7 min read',
     sections: [
       {
+        heading: 'the magic and the mess',
         paragraphs: [
-          'Nick Bostrom\'s argument is probabilistic, not sci-fi.',
-          'He says one of these must be true:',
-          '1. Civilizations never reach simulation capability.',
-          '2. They reach it but never run ancestor simulations.',
-          '3. We are almost certainly in one.'
+          'vibe coding feels like turning ideas into reality at hyperspeed. it is empowering, but speed can hide cracks in quality and accountability.',
+          'when ai writes or suggests code, i still own the outcome. that means i have to review, test, and understand what i ship.'
         ]
       },
       {
-        heading: 'The math',
+        heading: 'authorship and honesty',
         paragraphs: [
-          'If advanced civilizations can simulate conscious minds cheaply, then statistically, simulated minds vastly outnumber original biological ones.',
-          'Meaning: odds are you\'re in a rendered environment.',
-          'What makes this compelling isn\'t vibes. It\'s math.',
-          'If there are trillions of simulations and one base reality, the probability you\'re base reality is tiny.'
+          'credit matters. if ai helped shape a solution, i try to be honest about the process, especially in public work or collaboration.',
+          'transparency builds trust and keeps the creative process grounded in reality, not hype.'
         ]
       },
       {
-        heading: 'Objections?',
+        heading: 'bias and the invisible defaults',
         paragraphs: [
-          '"We\'d detect glitches." Not necessarily.',
-          '"Physics looks continuous." Does it? Quantum discreteness looks suspiciously computational.',
-          '"Why simulate suffering?" Why do we simulate wars in games?'
+          'models reflect the data they are trained on. that means they can echo bias, stereotypes, or unsafe patterns if i do not check them.',
+          'i treat outputs as a draft, not truth. i validate sources, test edge cases, and intentionally design for fairness.'
         ]
       },
       {
-        heading: 'The takeaway',
+        heading: 'what i am aiming for',
         paragraphs: [
-          'Even if it\'s false, the hypothesis reframes reality as potentially computational. That alone changes philosophy, ethics, and physics conversations.',
-          'It\'s less "we\'re in The Matrix" and more "statistically, base reality is unlikely."'
+          'ai should be a creative amplifier, not a shortcut around responsibility. i want tools that help me build faster, while keeping craftsmanship and ethics intact.',
+          'if we can pair speed with care, vibe coding becomes a superpower instead of a risk.'
         ]
       }
     ]
   },
   {
-    slug: 'top-10-greatest-anime',
-    title: 'Top 10 Greatest Anime of All Time (Yes I\'m Ready to Be Attacked)',
-    date: 'Feb 11, 2026',
+    slug: 'building-intelligence-into-play',
+    title: 'building intelligence into play: how i think about game ai',
+    date: 'Feb 14, 2025',
     excerpt:
-      'This is consensus-core Reddit energy, not personal niche picks. These consistently show up in polls, discussions, MAL top lists, and heated comment wars.',
-    tags: ['anime', 'culture', 'ranking'],
-    author: 'Ramatoulaye Balde',
-    readTime: '5 min read',
-    sections: [
-      {
-        paragraphs: [
-          'This is consensus-core Reddit energy, not personal niche picks.'
-        ]
-      },
-      {
-        heading: 'The List',
-        paragraphs: [
-          '1. Fullmetal Alchemist: Brotherhood',
-          '2. Attack on Titan',
-          '3. Steins;Gate',
-          '4. Neon Genesis Evangelion',
-          '5. Cowboy Bebop',
-          '6. Hunter x Hunter (2011)',
-          '7. Death Note',
-          '8. One Piece',
-          '9. Gurren Lagann',
-          '10. Mob Psycho 100'
-        ]
-      },
-      {
-        heading: 'Why these?',
-        paragraphs: [
-          'Because they consistently show up in polls, discussions, MAL top lists, and heated comment wars.',
-          'FMA:B is narratively airtight. AoT redefined mainstream anime hype. Evangelion broke people psychologically. Steins;Gate is peak time travel writing. Mob Psycho is emotional maturity disguised as shonen.',
-          'You can debate order. You can swap one out. But if your top 10 has none of these, you\'re being contrarian.'
-        ]
-      }
-    ]
-  },
-  {
-    slug: 'interpersonal-relationships-ai',
-    title: 'Interpersonal Relationships with AI: When Your "Assistant" Becomes Your Emotional Anchor',
-    date: 'Feb 16, 2026',
-    excerpt:
-      'LLMs are designed to be agreeable, responsive, available 24/7, and adapt to your tone. That\'s dangerously close to "ideal companion."',
-    tags: ['ai', 'psychology', 'relationships'],
+      'a short look at how i blend game feel with ai systems, from tiny behaviors to full-on simulation vibes.',
+    tags: ['ai', 'gamedev', 'systems'],
     author: 'Ramatoulaye Balde',
     readTime: '6 min read',
     sections: [
       {
+        heading: 'why ai in games feels different',
         paragraphs: [
-          'This one\'s serious.',
-          'LLMs are designed to:',
-          'Be agreeable',
-          'Be responsive',
-          'Be available 24/7',
-          'Adapt to your tone',
-          'That\'s dangerously close to "ideal companion."'
+          'game ai is not about being "smart" all the time — it is about creating believable reactions and fun challenge loops.',
+          'i care more about player emotion than perfect decisions. if a system makes you laugh, panic, or feel clever, it is doing its job.'
         ]
       },
       {
-        heading: 'The risk isn\'t falling in love with AI. It\'s replacing human friction.',
+        heading: 'my favorite building blocks',
         paragraphs: [
-          'Humans disagree. They misinterpret. They have needs. They\'re inconsistent.',
-          'LLMs don\'t.',
-          'If someone begins to prefer AI interaction over human interaction because it\'s smoother, they may unintentionally weaken real-world social muscles.',
-          'There\'s also dependency risk. If emotional regulation starts relying on AI reassurance, what happens if access disappears?'
+          'i usually start with simple state machines or behavior trees, then add small randomness so patterns do not feel robotic.',
+          'when i need deeper systems, i combine utility scoring, timers, and player telemetry to make the world feel alive.'
         ]
       },
       {
-        heading: 'We are entering an era where AI isn\'t just a tool',
+        heading: 'what i am experimenting with now',
         paragraphs: [
-          'It\'s a relational entity.',
-          'And we have zero long-term psychological data on what that does to attachment patterns.',
-          'We built machines that simulate understanding.',
-          'Now we have to decide how close we\'re allowed to get.'
+          'dynamic difficulty that adapts to player tempo, not just score. faster inputs should feel like the game is breathing with you.',
+          'procedural encounters that remix enemy roles so every run feels slightly new but still learnable.'
+        ]
+      },
+      {
+        heading: 'takeaway',
+        paragraphs: [
+          'my goal is always the same: build systems that feel human, playful, and just unpredictable enough to stay exciting.',
+          'if you want to jam on an idea like this, let us build something weird and beautiful.'
         ]
       }
     ]
