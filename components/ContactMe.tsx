@@ -1,14 +1,46 @@
 
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import contactMeImg from '../media/contact-me.png';
+import ptLogoImg from '../media/PTlogo.png';
 
 const ContactMe: React.FC = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setError('');
+    setSending(true);
+
+    try {
+      // EmailJS configuration
+      // You need to replace 'YOUR_PUBLIC_KEY' and 'YOUR_TEMPLATE_ID' with your actual EmailJS credentials
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Ramatoulaye',
+      };
+
+      await emailjs.send(
+        'service_smsgzjs',
+        'template_cq6kn9z',
+        templateParams,
+        't9xCJZC2OTELtKUXf'
+      );
+
+      setSent(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setError('message failed to send. please try again.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -50,7 +82,7 @@ const ContactMe: React.FC = () => {
         <div className="md:col-span-3">
           {sent ? (
             <div className="h-full flex flex-col items-center justify-center text-center p-12 bg-pink-900/10 rounded-3xl border-2 border-dashed border-[#FF85C1]/50">
-              <div className="text-8xl mb-6">📬</div>
+              <img src={ptLogoImg} alt="Message Sent" className="w-32 h-32 mb-6 object-contain" />
               <h3 className="font-bimbo text-5xl text-white mb-4">message sent!</h3>
               <p className="font-bimbo-alt text-xl text-pink-300">i'll get back to you as soon as i finish this coffee.</p>
               <button 
@@ -85,6 +117,17 @@ const ContactMe: React.FC = () => {
                 />
               </div>
               <div>
+                <label className="block font-bimbo text-2xl text-pink-400 mb-2">subject</label>
+                <input 
+                  type="text" 
+                  required
+                  className="w-full bg-pink-900/5 border-2 border-pink-900/40 rounded-2xl p-4 font-bimbo text-2xl text-white outline-none focus:border-[#FF85C1] transition-colors"
+                  placeholder="what's this about?"
+                  value={formData.subject}
+                  onChange={e => setFormData({...formData, subject: e.target.value})}
+                />
+              </div>
+              <div>
                 <label className="block font-bimbo text-2xl text-pink-400 mb-2">what's up!</label>
                 <textarea 
                   rows={5}
@@ -95,11 +138,15 @@ const ContactMe: React.FC = () => {
                   onChange={e => setFormData({...formData, message: e.target.value})}
                 />
               </div>
+              {error && (
+                <p className="font-bimbo text-xl text-red-400">{error}</p>
+              )}
               <button 
                 type="submit"
+                disabled={sending}
                 className="w-full py-5 bg-[#FF85C1] text-black font-bimbo text-4xl rounded-2xl hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(255,133,193,0.3)] hover:shadow-[0_0_40px_rgba(255,133,193,0.6)]"
               >
-                blast it!
+                {sending ? 'sending...' : 'blast it!'}
               </button>
             </form>
           )}

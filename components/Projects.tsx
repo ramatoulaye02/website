@@ -1,6 +1,13 @@
 
 import React, { useState } from 'react';
+import educomicsImg from '../media/educomics.png';
+import gpsDemoGif from '../media/gps-demo.gif';
 import gpsProjectImg from '../media/gps-project.png';
+import rcaImg from '../media/rca.png';
+import silentSerenadeImg from '../media/silent-serenade.png';
+import silentSerenade1Img from '../media/silent-serenade1.png';
+import silentSerenade2Img from '../media/silent-serenade2.png';
+import uniLinksImg from '../media/UniLinks.png';
 
 const Projects: React.FC = () => {
   type ProjectCategory = 'gamedev' | 'ai' | 'apps';
@@ -15,68 +22,79 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
-      name: "PinkOS",
-      desc: "A completely unusable but very pretty operating system shell written in JS.",
-      tech: ["React", "Tailwind", "Framer Motion"],
+      name: "UniLinks",
+      desc: "McWics Hackathon Winner - Best Use of Gemini API. AI-powered student platform fostering connections through shared classes, interests, and an AI social practice space for presentation and networking skills.",
+      tech: ["React", "TypeScript", "Gemini Live API", "Computer Vision", "Multimodal AI"],
       category: 'apps' as const,
-      repo: undefined,
-      demo: undefined,
+      image: uniLinksImg,
+      descriptionImage: uniLinksImg,
+      repo: "https://github.com/olibreadstick/UniLinks",
+      demo: "https://devpost.com/software/unilinks",
+      detailedDesc: `## Project Overview
+**McWics Hackathon Winner - Best Use of Gemini API**
+
+UniLinks is an AI-powered student-focused platform designed to foster connections, community and friendship. The platform connects students based on shared classes, interests and working styles.
+
+A key feature of UniLinks is the **AI-powered social practice space** for students. Especially for those with social anxiety, students can practice presentations, network interactions, and receive feedback on communication style.
+
+**My Role**: I worked on the entire AI integration of the app, including integration of Gemini API computer vision, TTS (Text-to-Speech), and STT (Speech-to-Text).
+
+## How the Project was Built
+Full stack web application with AI integration.
+
+## Technologies & Tools
+
+**Frontend: React + TypeScript**
+• Component-based UI for scenario selection, live sessions, and feedback panels
+• Real-time state management for audio, video, and AI interaction
+
+**Backend & AI Integration**
+• **Gemini Live API** for low-latency, real-time AI conversations with native audio output
+• AI conversation simulator for practicing social and networking scenarios
+• LLM-powered recommendations engine for events, clubs, and connections
+• Multimodal input support (audio + images) for contextual understanding
+• Used to power both the AI Social Coach and immersive roleplay simulations
+
+## AI Integration & Computer Vision
+
+**Gemini Live Multimodal Sessions**
+• Real-time streaming of microphone audio and webcam frames to Gemini
+• AI responds with synthesized speech for natural, FaceTime-style interaction
+• Text responses are also captured internally for transcripts and feedback analysis
+
+**Computer Vision (Client-side)**
+• Periodic webcam frame capture using an offscreen canvas
+• Frames compressed and streamed to Gemini as vision inputs
+• Enables AI to reason about posture, facial engagement, eye contact, and overall presentation
+• Lightweight, privacy-aware approach (no facial recognition or identity tracking)
+
+## Key Features
+• **AI Social Coach**: Practice presentations and networking with real-time AI feedback
+• **Computer Vision Analysis**: AI analyzes posture, engagement, and presentation skills
+• **Student Connections**: Match with peers based on classes, interests, and working styles
+• **Real-time Feedback**: Receive immediate feedback on communication style and delivery
+• **Multimodal Interaction**: Seamless audio and visual AI interaction
+• **Privacy-First Design**: Client-side processing with no identity tracking
+
+## Technical Highlights
+• Low-latency real-time AI conversations using Gemini Live API
+• Multimodal AI processing (audio + vision) for comprehensive feedback
+• Client-side computer vision implementation for privacy
+• Text-to-Speech and Speech-to-Text integration
+• Responsive React + TypeScript architecture
+
+## Links
+• **General UI Demo**: Available under "Try it out" section
+• **AI Social Coach Demo**: Available under "Video Demo Link"
+• **Devpost**: https://devpost.com/software/unilinks
+`,
       icon: (
         <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
-          <rect x="15" y="20" width="70" height="50" rx="5" className="animate-pulse" />
-          <path d="M15 60 L85 60" />
-          <path d="M40 70 L30 85 L70 85 L60 70" />
-          <circle cx="50" cy="40" r="8" className="fill-[#FF85C1]" />
-        </svg>
-      )
-    },
-    {
-      name: "VibeCheck",
-      desc: "AI-powered sentiment analysis for your messy discord chats.",
-      tech: ["Gemini API", "Node.js", "Express"],
-      category: 'ai' as const,
-      repo: undefined,
-      demo: undefined,
-      icon: (
-        <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
-          <circle cx="50" cy="50" r="35" />
-          <path d="M35 40 C35 40 38 35 42 40" strokeLinecap="round" />
-          <path d="M58 40 C58 40 61 35 65 40" strokeLinecap="round" />
-          <path d="M35 65 Q50 80 65 65" strokeLinecap="round" className="text-[#FF85C1]" />
-          <path d="M20 20 L30 30 M80 20 L70 30" strokeLinecap="round" opacity="0.5" />
-        </svg>
-      )
-    },
-    {
-      name: "GlowUI",
-      desc: "A library of React components that literally glow on hover.",
-      tech: ["TypeScript", "Radix UI", "CSS"],
-      category: 'apps' as const,
-      repo: undefined,
-      demo: undefined,
-      icon: (
-        <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
-          <path d="M50 15 L60 40 L85 40 L65 55 L75 80 L50 65 L25 80 L35 55 L15 40 L40 40 Z" className="fill-[#FF85C1]/20" />
-          <circle cx="50" cy="50" r="5" className="fill-[#FF85C1]" />
-          <path d="M50 5 L50 15 M95 50 L85 50 M50 95 L50 85 M5 50 L15 50" strokeLinecap="round" />
-          <path d="M80 20 L70 30 M80 80 L70 70 M20 80 L30 70 M20 20 L30 30" strokeLinecap="round" />
-        </svg>
-      )
-    },
-    {
-      name: "Bubblegum Engine",
-      desc: "A simple 2D game engine optimized for low-res pixel art.",
-      tech: ["Canvas", "C++", "WebAssembly"],
-      category: 'gamedev' as const,
-      repo: undefined,
-      demo: undefined,
-      icon: (
-        <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
-          <circle cx="40" cy="40" r="20" className="fill-[#FF85C1]/40" />
-          <circle cx="65" cy="55" r="15" className="fill-[#FF85C1]/20" />
-          <circle cx="45" cy="65" r="10" />
-          <path d="M75 30 Q85 40 75 50" strokeLinecap="round" />
-          <rect x="35" y="35" width="4" height="4" className="fill-white" stroke="none" />
+          <circle cx="35" cy="40" r="12" className="fill-pink-900/20" />
+          <circle cx="65" cy="40" r="12" className="fill-pink-900/20" />
+          <circle cx="50" cy="65" r="12" className="fill-pink-900/20" />
+          <path d="M45 45 L40 55 M55 45 L60 55" strokeLinecap="round" strokeWidth="2.5" className="stroke-[#FF85C1]" />
+          <circle cx="50" cy="50" r="3" className="fill-[#FF85C1]" />
         </svg>
       )
     },
@@ -85,6 +103,8 @@ const Projects: React.FC = () => {
       desc: "AI-powered platform that transforms educational lecture PDFs into engaging comic books for enhanced learning and retention.",
       tech: ["Python", "Flask", "OpenAI", "JavaScript"],
       category: 'apps' as const,
+      image: educomicsImg,
+      descriptionImage: educomicsImg,
       repo: "https://github.com/ramatoulaye02/ComicMyNotes.git",
       demo: "https://devpost.com/software/educomics",
       detailedDesc: `## Project Overview
@@ -143,11 +163,141 @@ Our platform is a website that transforms educational lecture PDFs into engaging
       )
     },
     {
+      name: "Royal Canada Airline",
+      desc: "Full-stack airline management and booking system that centralizes operations for staff and streamlines reservations for customers.",
+      tech: ["Java", "Spring", "PostgreSQL", "HTML", "CSS", "JavaScript"],
+      category: 'apps' as const,
+      image: rcaImg,
+      repo: "https://github.com/McGill-ECSE321-Fall2025/group-project-group-2",
+      demo: undefined,
+      detailedDesc: `## Project Overview
+Royal Canada Airline is a web application designed to improve and centralize daily airline operations. It provides customers with a fast, flexible booking experience while giving employees and managers the tools needed to coordinate flights, crew assignments, and airline policies.
+
+## Customer Experience
+• Account creation and authentication
+• Flight search by date and location
+• Book and cancel reservations
+• View and track travel history
+• Receive timely booking updates and confirmations
+
+## Operations & Management
+• Dashboards for pilots and flight attendants to view assigned flights
+• Booking manager tools to add, remove, or delay flights
+• Crew assignment and scheduling oversight
+• Centralized admin dashboard for customer activity and employee management
+• Airline-wide policy and announcement updates
+
+## Development Highlights
+• Deliverable 1: Requirements, use cases, domain model, and persistence layer with PostgreSQL
+• Deliverable 2: RESTful backend services using Java Spring with unit and integration testing
+• Deliverable 3: Web frontend built with HTML, CSS, and JavaScript integrated with backend APIs
+
+## Technology Stack
+• Java Spring for backend services
+• PostgreSQL persistence layer
+• RESTful APIs with DTOs and service/controller structure
+• HTML, CSS, and JavaScript frontend
+• Gradle build automation and testing
+`,
+      icon: (
+        <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
+          <path d="M15 55 L85 45" strokeLinecap="round" />
+          <path d="M45 40 L55 60" strokeLinecap="round" />
+          <path d="M25 60 L40 55" strokeLinecap="round" />
+          <path d="M60 50 L80 40" strokeLinecap="round" />
+          <circle cx="20" cy="58" r="3" className="fill-[#FF85C1]" />
+        </svg>
+      )
+    },
+    {
+      name: "Silent Serenade",
+      desc: "A 2D platformer where every collected note matters. Navigate through beautifully crafted levels, collect musical notes to complete melodies, and avoid dangerous sharps.",
+      tech: ["Unity", "C#", "Universal Render Pipeline"],
+      category: 'gamedev' as const,
+      image: silentSerenade2Img,
+      descriptionImage: silentSerenade1Img,
+      repo: "https://github.com/kana797/McGameJam26",
+      demo: "https://lina674.itch.io/silent-serenade",
+      detailedDesc: `## About The Game
+**This world has fallen silent.**
+
+Music has vanished, and the Queen is trapped in a realm where no sound remains. To restore harmony, she must hunt the lost musical notes scattered across the land while avoiding sharps—corrupted notes that seek to twist the melody.
+
+**Silent Serenade** is a 2D platformer where every collected note matters. Navigate through beautifully crafted levels, collect musical notes to complete melodies, and avoid the dangerous sharps that hunt you. With every complete melody restored, a new instrument awakens, shaping both the sound and the theme of the next world.
+
+![Silent Serenade Gameplay](${silentSerenade1Img})
+
+## Key Features
+• **Musical Progression System**: Collect notes to restore melodies and unlock new instruments
+• **Dynamic Worlds**: Each completed melody transforms the environment with new themes and sounds
+• **Strategic Gameplay**: Balance risk and reward as you hunt notes while avoiding sharps
+• **Note Collection Mechanic**: Gather scattered musical notes across diverse platforming challenges
+• **Enemy Mechanics**: Sharps spawn and hunt you as you collect notes, adding tension to your journey
+• **Responsive Controls**: Smooth platforming with double jump, precise movement, and polished physics
+• **Atmospheric Soundtrack**: Experience the world evolving from silence to a full symphony
+
+![Silent Serenade World](${silentSerenade2Img})
+
+## How to Play
+**Objective**: Restore harmony to the silent world by collecting all musical notes in each level. Complete melodies to progress through different themed worlds.
+
+**Controls**
+• Move: Arrow Keys / A & D
+• Jump: Space Bar
+• Double Jump: Press Space twice
+• Fast Fall: Down Arrow while in air
+• Pause: Escape
+
+**Gameplay Mechanics**
+• **Collect Notes**: Find and collect musical notes scattered throughout each level
+• **Avoid Sharps**: Enemy notes (sharps) will spawn and patrol the area. If they catch you, you'll lose your most recently collected note
+• **Complete Melodies**: Gather all notes in a level to restore a complete melody
+• **Progress**: Each completed melody unlocks a new instrument and transforms the world
+
+**Tips**
+• Plan your route carefully before collecting notes
+• Sharps spawn when you collect notes, so be strategic about your collection order
+• Use the platforming mechanics (double jump, fast fall) to outmaneuver enemies
+• Listen to the evolving soundtrack as you collect more notes
+
+## Technical Information
+**Built With**
+• Unity (2D Game Engine)
+• C# for game scripting
+• Universal Render Pipeline
+
+**Project Structure**
+• **Assets/Scripts**: Game logic and mechanics
+  - PlayerMovement.cs: Character controller with advanced platforming
+  - CollectibleNotes.cs: Note collection and tracking system
+  - SharpeEnemy.cs / Patroller2D.cs: Enemy AI and behavior
+  - MusicTrack.cs: Audio and instrument progression
+• **Assets/Scenes**: Game levels (LVL0, LVL1, LVL2, LVL3)
+• **Assets/Sounds**: Audio assets and music tracks
+• **Assets/Prefabs**: Reusable game objects
+
+**Created for McGameJam26**
+
+---
+
+**Restore the melody. Save the world. 🎵**
+`,
+      icon: (
+        <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
+          <circle cx="50" cy="50" r="25" className="fill-pink-900/20" />
+          <path d="M60 35 L60 55 M75 40 L75 50" strokeLinecap="round" strokeWidth="2.5" />
+          <ellipse cx="60" cy="60" rx="5" ry="7" className="fill-[#FF85C1]" />
+          <ellipse cx="75" cy="55" rx="5" ry="7" className="fill-[#FF85C1]" />
+          <path d="M30 45 Q35 40 40 45 T50 45" strokeLinecap="round" strokeWidth="2" />
+        </svg>
+      )
+    },
+    {
       name: "GPS Lionel Groulx",
       desc: "Indoor GPS navigation system for Collège Lionel-Groulx featuring a custom-built indoor map with real-time student positioning and campus wayfinding.",
       tech: ["C#", "Unity", "GPS"],
       category: 'gamedev' as const,
-      image: gpsProjectImg,
+      image: gpsDemoGif,
       repo: "https://github.com/ramatoulaye02/GPS-Lionel-Groulx-1.git",
       demo: "https://youtu.be/qRlyFOSZL3o?si=OvDBjickhwKTfRFY",
       descriptionImage: gpsProjectImg,
