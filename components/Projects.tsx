@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import educomicsImg from '../media/educomics.png';
 import gpsDemoGif from '../media/gps-demo.gif';
 import gpsProjectImg from '../media/gps-project.png';
+import handblockGif from '../media/handblock.gif';
+import geoPicImg from '../media/GeoPic.png';
 import rcaImg from '../media/rca.png';
 import silentSerenadeImg from '../media/silent-serenade.png';
 import silentSerenade1Img from '../media/silent-serenade1.png';
@@ -11,8 +13,8 @@ import uniLinksImg from '../media/UniLinks.png';
 
 const Projects: React.FC = () => {
   type ProjectCategory = 'gamedev' | 'ai' | 'apps';
-  const [activeCategory, setActiveCategory] = useState<ProjectCategory>('apps');
-  const [expandedProject, setExpandedProject] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory>('ai');
+  const [expandedProjects, setExpandedProjects] = useState<string[]>([]);
 
   const tabFloatTimings: Record<ProjectCategory, { duration: string; delay: string }> = {
     gamedev: { duration: '3.6s', delay: '0s' },
@@ -21,7 +23,98 @@ const Projects: React.FC = () => {
   };
 
   const projects = [
+
     {
+      name: "HandsTrackingBoxBuilder",
+      desc: "Hand-gesture controlled voxel builder that uses real-time tracking and AI-guided structure generation to create 3D scenes in the browser.",
+      tech: ["React", "TypeScript", "Three.js", "React Three Fiber", "MediaPipe", "Gemini", "Vite"],
+      category: 'ai' as const,
+      image: handblockGif,
+      descriptionImage: handblockGif,
+      repo: "https://github.com/ramatoulaye02/HandsTrackingBoxBuilder.git",
+      demo: "https://youtu.be/LMWgEkdLpFo",
+      detailedDesc: `## Project Overview
+HandsTrackingBoxBuilder (Gemini Voxel Builder) is a computer vision tool that lets you build 3D voxel scenes using hand gestures. It combines real-time hand tracking with AI-assisted structure generation so you can place, erase, and navigate voxels naturally in the browser.
+
+## Key Features
+• **Pinch to Build**: Pinch your index finger and thumb to place or remove voxels
+• **Real-time Tracking**: MediaPipe Tasks Vision for accurate hand landmark detection
+• **Multiple Modes**: Build, Erase, and Navigate modes with live status indicators
+• **AI Structure Awareness**: Gemini helps maintain coherent spatial structures
+• **Color Palette**: Choose from 8 voxel colors with instant feedback
+• **3D Navigation**: Orbit camera to inspect your creation from any angle
+• **Camera Toggle & Reset**: Enable/disable tracking and clear the scene quickly
+
+## How It Works
+1. Show your hand to the camera; the system detects it automatically.
+2. Pinch to place or remove voxels at the cursor position.
+3. Switch modes to build, erase, or orbit the camera.
+4. Pick colors from the palette to customize your model.
+
+## Technology Stack
+• **Frontend**: React 19.2 + TypeScript
+• **3D Rendering**: Three.js with React Three Fiber
+• **Hand Tracking**: MediaPipe Tasks Vision
+• **Build Tool**: Vite 6.2
+• **Styling**: Tailwind CSS
+• **AI Integration**: Gemini API
+`,
+      icon: (
+        <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
+          <path d="M30 55 L30 35 C30 30 35 28 38 32 L40 45" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M40 45 L42 30 C43 26 50 26 50 32 L50 48" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M50 48 L52 28 C53 24 60 24 60 30 L60 50" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M60 50 L62 32 C63 28 70 28 70 34 L70 54" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M30 55 L30 65 C30 75 40 82 55 82 C70 82 78 74 78 62" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="78" cy="60" r="8" className="fill-pink-900/20" />
+        </svg>
+      )
+    },
+    {
+      name: "GeoRefine",
+      desc: "Geometry-aware rendering enhancement framework that conditions image refinement on depth and normals to preserve structural coherence.",
+      tech: ["Python", "PyTorch", "UNet", "VGG", "G-buffer", "SSIM", "LPIPS"],
+      category: 'ai' as const,
+      image: geoPicImg,
+      descriptionImage: geoPicImg,
+      repo: "https://github.com/ramatoulaye02/GeoRefine.git",
+      demo: undefined,
+      detailedDesc: `## Project Overview
+GeoRefine is a geometry-aware rendering enhancement framework that improves the perceptual and structural quality of 2D/3D renders by conditioning enhancement on depth and surface normals. It targets common rendering issues like temporal instability, edge blurring, compression artifacts, and geometry-breaking hallucinations.
+
+## Key Features
+• **UNet Enhancement Backbone** with residual blocks and skip connections
+• **Geometry Conditioning** using depth and normal maps (7-channel input)
+• **Structural Consistency Loss** aligning depth gradients with normals
+• **Perceptual Loss** based on VGG feature activations
+• **Evaluation Metrics**: PSNR, SSIM, and LPIPS
+• **Rendering Pipeline Integration** with G-buffer inputs
+
+## Architecture Summary
+Input: RGB (3) + Depth (1) + Normals (3) → UNet encoder-decoder → enhanced RGB output.
+
+## Losses
+• $L_{recon}$: L1 reconstruction loss
+• $L_{perceptual}$: VGG feature loss
+• $L_{geo}$: geometry consistency between depth gradients and normals
+Total: $L_{total} = \\lambda_{recon} L_{recon} + \\lambda_{perceptual} L_{perceptual} + \\lambda_{geo} L_{geo}$
+
+## Usage Highlights
+• Train: \`python scripts/train.py --config configs/default.yaml\`
+• Evaluate: \`python scripts/eval.py --checkpoint outputs/checkpoints/model_ep10.pt\`
+• Infer: \`python scripts/infer.py --ckpt outputs/checkpoints/model_ep10.pt --input path/to/image.png --output enhanced.png\`
+`,
+      icon: (
+        <svg viewBox="0 0 100 100" className="w-full h-full stroke-current fill-none" strokeWidth="3">
+          <rect x="18" y="22" width="64" height="56" rx="4" className="fill-pink-900/20" />
+          <path d="M30 35 L70 35 M30 50 L70 50 M30 65 L70 65" strokeLinecap="round" />
+          <circle cx="35" cy="35" r="3" className="fill-[#FF85C1]" />
+          <circle cx="65" cy="50" r="3" className="fill-[#FF85C1]" />
+          <circle cx="50" cy="65" r="3" className="fill-[#FF85C1]" />
+        </svg>
+      )
+    },
+     {
       name: "UniLinks",
       desc: "McWics Hackathon Winner - Best Use of Gemini API. AI-powered student platform fostering connections through shared classes, interests, and an AI social practice space for presentation and networking skills.",
       tech: ["React", "TypeScript", "Gemini Live API", "Computer Vision", "Multimodal AI"],
@@ -397,104 +490,110 @@ Windows Desktop, macOS, Linux, iOS, Android (with GPS support)
       
       <div className="grid sm:grid-cols-2 gap-10">
         {visibleProjects.map((proj, idx) => (
-          <div key={idx} className="group relative p-1 rounded-3xl bg-pink-900/10 hover:bg-[#FF85C1]/20 transition-all duration-500 border border-pink-900/30 hover:border-[#FF85C1]/50 shadow-xl">
-            <div className="bg-black/40 backdrop-blur-sm p-8 rounded-[22px] h-full flex flex-col">
-              {proj.image && (
-                <img 
-                  src={proj.image} 
-                  alt={proj.name}
-                  className="w-full h-48 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500"
-                />
-              )}
-              
-              <div className="w-16 h-16 mb-6 text-[#FF85C1] group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_#FF85C1] transition-all duration-500 transform -rotate-3 group-hover:rotate-0">
-                {proj.icon}
-              </div>
-              
-              <h3 className="font-bimbo text-4xl text-white mb-3 tracking-tight group-hover:text-[#FF85C1] transition-colors">
-                {proj.name}
-              </h3>
-              
-              <p className="font-bimbo-alt text-lg text-pink-200/70 mb-8 flex-grow leading-relaxed">
-                {proj.desc}
-              </p>
-              
-              <div className="flex flex-wrap gap-2 mb-8">
-                {proj.tech.map(t => (
-                  <span key={t} className="font-bimbo text-lg px-3 py-0.5 bg-pink-900/20 border border-pink-500/20 rounded-lg text-pink-400">
-                    {t.toLowerCase()}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="space-y-3">
-                <div className="flex gap-4">
-                  {proj.repo && (
-                    <a 
-                      href={proj.repo} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex-1 font-bimbo text-2xl py-2 rounded-xl border-2 border-pink-500/30 hover:bg-pink-500/10 text-[#FF85C1] transition-all active:scale-95 text-center"
+          <div key={idx}>
+            <div className="group relative p-1 rounded-3xl bg-pink-900/10 hover:bg-[#FF85C1]/20 transition-all duration-500 border border-pink-900/30 hover:border-[#FF85C1]/50 shadow-xl">
+              <div className="bg-black/40 backdrop-blur-sm p-8 rounded-[22px] h-full flex flex-col">
+                {proj.image && (
+                  <img 
+                    src={proj.image} 
+                    alt={proj.name}
+                    className="w-full h-48 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500"
+                  />
+                )}
+                
+                <div className="w-16 h-16 mb-6 text-[#FF85C1] group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_#FF85C1] transition-all duration-500 transform -rotate-3 group-hover:rotate-0">
+                  {proj.icon}
+                </div>
+                
+                <h3 className="font-bimbo text-4xl text-white mb-3 tracking-tight group-hover:text-[#FF85C1] transition-colors">
+                  {proj.name}
+                </h3>
+                
+                <p className="font-bimbo-alt text-lg text-pink-200/70 mb-8 flex-grow leading-relaxed">
+                  {proj.desc}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {proj.tech.map(t => (
+                    <span key={t} className="font-bimbo text-lg px-3 py-0.5 bg-pink-900/20 border border-pink-500/20 rounded-lg text-pink-400">
+                      {t.toLowerCase()}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex gap-4">
+                    {proj.repo && (
+                      <a 
+                        href={proj.repo} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex-1 font-bimbo text-2xl py-2 rounded-xl border-2 border-pink-500/30 hover:bg-pink-500/10 text-[#FF85C1] transition-all active:scale-95 text-center"
+                      >
+                        view repo
+                      </a>
+                    )}
+                    {proj.demo && (
+                      <a 
+                        href={proj.demo} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex-1 font-bimbo text-2xl py-2 rounded-xl bg-[#FF85C1] text-black hover:shadow-[0_0_20px_#FF85C1] transition-all active:scale-95 text-center"
+                      >
+                        live demo
+                      </a>
+                    )}
+                  </div>
+                  {proj.detailedDesc && (
+                    <button
+                      onClick={() => setExpandedProjects(prev => 
+                        prev.includes(proj.name) 
+                          ? prev.filter(name => name !== proj.name)
+                          : [...prev, proj.name]
+                      )}
+                      className="w-full font-bimbo text-xl py-2 rounded-xl border-2 border-pink-500/40 hover:bg-pink-500/5 text-pink-300 transition-all"
                     >
-                      view repo
-                    </a>
-                  )}
-                  {proj.demo && (
-                    <a 
-                      href={proj.demo} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex-1 font-bimbo text-2xl py-2 rounded-xl bg-[#FF85C1] text-black hover:shadow-[0_0_20px_#FF85C1] transition-all active:scale-95 text-center"
-                    >
-                      live demo
-                    </a>
+                      {expandedProjects.includes(proj.name) ? 'hide details' : 'show details'}
+                    </button>
                   )}
                 </div>
-                {proj.detailedDesc && (
-                  <button
-                    onClick={() => setExpandedProject(expandedProject === proj.name ? null : proj.name)}
-                    className="w-full font-bimbo text-xl py-2 rounded-xl border-2 border-pink-500/40 hover:bg-pink-500/5 text-pink-300 transition-all"
-                  >
-                    {expandedProject === proj.name ? 'hide details' : 'show details'}
-                  </button>
-                )}
               </div>
             </div>
+
+            {expandedProjects.includes(proj.name) && proj.detailedDesc && (
+              <div className="mt-6 p-8 bg-pink-900/10 rounded-3xl border-2 border-pink-900/40 max-h-[60vh] overflow-y-auto">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="font-bimbo text-3xl text-white">{proj.name} - project description</h3>
+                  <button
+                    onClick={() => setExpandedProjects(prev => prev.filter(name => name !== proj.name))}
+                    className="font-bimbo text-2xl text-pink-300 hover:text-white transition-colors"
+                  >
+                    ✕
+                  </button>
+                </div>
+                {proj.descriptionImage && (
+                  <img 
+                    src={proj.descriptionImage}
+                    alt={proj.name}
+                    className="w-full h-64 object-cover rounded-2xl mb-6 border border-pink-900/30"
+                  />
+                )}
+                <div className="font-bimbo-alt text-lg text-pink-100/90 leading-relaxed whitespace-pre-wrap">
+                  {proj.detailedDesc}
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
-
-      {expandedProject && visibleProjects.find(p => p.name === expandedProject)?.detailedDesc && (
-        <div className="mt-12 p-12 bg-pink-900/10 rounded-3xl border-2 border-pink-900/40 max-h-[60vh] overflow-y-auto">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="font-bimbo text-4xl text-white">{expandedProject} - project description</h3>
-            <button
-              onClick={() => setExpandedProject(null)}
-              className="font-bimbo text-2xl text-pink-300 hover:text-white transition-colors"
-            >
-              ✕
-            </button>
-          </div>
-          {visibleProjects.find(p => p.name === expandedProject)?.descriptionImage && (
-            <img 
-              src={visibleProjects.find(p => p.name === expandedProject)?.descriptionImage}
-              alt={expandedProject}
-              className="w-full h-64 object-cover rounded-2xl mb-8 border border-pink-900/30"
-            />
-          )}
-          <div className="font-bimbo-alt text-lg text-pink-100/90 leading-relaxed whitespace-pre-wrap">
-            {visibleProjects.find(p => p.name === expandedProject)?.detailedDesc}
-          </div>
-        </div>
-      )}
 
       <div className="mt-24 p-12 bg-pink-900/5 rounded-3xl border-2 border-dashed border-pink-900/30 text-center relative overflow-hidden group">
         <div className="absolute inset-0 bg-[#FF85C1]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
         <h4 className="font-bimbo text-5xl mb-4 text-white relative z-10">want to collab?</h4>
         <p className="font-bimbo-alt text-2xl text-pink-300 mb-8 relative z-10">always looking for cool people to build cool things with.</p>
-        <button className="relative z-10 px-16 py-5 bg-[#FF85C1] text-black font-bimbo text-3xl rounded-full hover:shadow-[0_0_40px_#FF85C1] hover:scale-110 transition-all duration-300">
+        <a href="#contact" className="relative z-10 inline-block px-16 py-5 bg-[#FF85C1] text-black font-bimbo text-3xl rounded-full hover:shadow-[0_0_40px_#FF85C1] hover:scale-110 transition-all duration-300">
           send me a msg
-        </button>
+        </a>
       </div>
     </div>
   );
